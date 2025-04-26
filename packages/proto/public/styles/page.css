@@ -1,0 +1,83 @@
+@import url('tokens.css');
+
+body {
+    font-family: var(--font-family-sans);
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    margin: var(--space-md);
+  }
+
+  main {
+    padding-top: calc(var(--nav-height) + 25px); /* Adds nav height + a little extra space */
+  }
+  
+
+  header {
+    display: block;
+    unicode-bidi: isolate;
+  }
+  
+  h1 {
+    font-size: var(--font-size-xl);
+    color: var(--color-primary);
+  }
+  
+  h2 {
+    font-size: var(--font-size-lg);
+    color: var(--color-secondary);
+  }
+  
+  
+  /* Projects and cards */
+  .projects, .other-sections {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto 60px;
+  }
+  
+  .card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+  
+  .card a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  .card a:hover {
+    color: #0077cc;
+  }
+  
+  nav {
+    height: var(--nav-height);
+    top: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    z-index: 9999;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: transform .4s ease-in;
+}
+
+nav, footer {
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
