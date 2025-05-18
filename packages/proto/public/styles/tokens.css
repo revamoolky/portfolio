@@ -30,5 +30,15 @@
     --font-size-lg: 1.25rem;   /* 20px */
     --font-size-xl: 1.5rem;    /* 24px */
     --font-weight-reg: 400;
+
+    /*  Dark Mode */
+    body.dark {
+        --color-background: #111827;
+        --color-text-primary: #f9fafb;
+        --color-text-secondary: #d1d5db;
+        --color-primary: #818cf8;
+        --color-secondary: #a5b4fc;
+      }
+      
   }
   

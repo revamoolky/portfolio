@@ -1,4 +1,5 @@
-@import url('tokens.css');
+@import './tokens.css'; /* Use relative path */
+
 
 body {
     font-family: var(--font-family-sans);
@@ -80,4 +81,22 @@ nav, footer {
     padding-left: 3rem;
     padding-right: 3rem;
 }
+
+body.dark {
+    background-color: #111827;
+    color: #f9fafb;
+  }
+  
+  body.dark .card {
+    background-color: #1f2937;
+    color: #f9fafb;
+  }
+  
+  #darkmode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: var(--font-size-sm);
+  }
+  
 
