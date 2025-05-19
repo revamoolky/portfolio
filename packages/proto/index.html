@@ -39,7 +39,7 @@
         <a href="paloaltonetworks.html">Nonprofit Website Revamp</a>
       </div>
     </section>
-    <ux-case-wrapper src="/data/uxCases.json"></ux-case-wrapper>
+    <ux-case-wrapper src="data/ux-cases.json"></ux-case-wrapper>
 
     <!-- <ux-case-header 
         img-src="/images/ai_case.png" 
@@ -57,21 +57,25 @@
     <h1 slot="title">Designing AI Research Tools</h1>
     <h2 slot="subtitle">Empowering designers to lead their own research</h2>
     </ux-case-header> -->
-    <!-- <ux-case-header 
+    <ux-case-header 
         img-src="/images/ai_case.png" 
         alt="AI case study preview" 
         category="UX Research | 2025"
     >   
     <h1 slot="title">Designing AI Research Tools</h1>
     <h2 slot="subtitle">Empowering designers to lead their own research</h2>
-    </ux-case-header> -->
+    </ux-case-header>
     <script type="module">
       import { define } from "@calpoly/mustang";
       import { UxCaseHeaderElement } from "/src/ux-case-header.js";
-
-      define({
-        "ux-case-header": UxCaseHeaderElement
-      });
+      import { UxCaseWrapper} from "/src/components/UxCaseWrapper.js";
+    
+      // define({
+      //   "ux-case-header": UxCaseHeaderElement,
+      //   "ux-case-wrapper": UxCaseWrapper,
+      // });
+      customElements.define('ux-case-header', UxCaseHeaderElement);
+    customElements.define('ux-case-wrapper', UxCaseWrapper);
     </script>
   </main>
   <script>
