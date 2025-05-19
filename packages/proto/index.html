@@ -5,8 +5,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="src/styles/page.css" />
+
   <title>Reva UX Portfolio</title>
-  <link rel="stylesheet" href="styles/page.css">
 </head>
 <body>
   <nav>
@@ -29,15 +30,47 @@
     </header>
     <section id="project-list">
       <div class="card">
-        <a href="projects/casify.html">Redesigning a Checkout Flow</a>
+        <a href="casify.html">Redesigning a Checkout Flow</a>
       </div>
       <div class="card">
-        <a href="projects/amplitude.html">Intern Dashboard Experience</a>
+        <a href="amplitude.html">Intern Dashboard Experience</a>
       </div>
       <div class="card">
-        <a href="projects/paloaltonetworks.html">Nonprofit Website Revamp</a>
+        <a href="paloaltonetworks.html">Nonprofit Website Revamp</a>
       </div>
     </section>
+    <ux-case-header 
+        img-src="/images/ai_case.png" 
+        alt="AI case study preview" 
+        category="UX Research | 2025"
+    >   
+    <h1 slot="title">Designing AI Research Tools</h1>
+    <h2 slot="subtitle">Empowering designers to lead their own research</h2>
+    </ux-case-header>
+    <ux-case-header 
+        img-src="/images/ai_case.png" 
+        alt="AI case study preview" 
+        category="UX Research | 2025"
+    >   
+    <h1 slot="title">Designing AI Research Tools</h1>
+    <h2 slot="subtitle">Empowering designers to lead their own research</h2>
+    </ux-case-header>
+    <ux-case-header 
+        img-src="/images/ai_case.png" 
+        alt="AI case study preview" 
+        category="UX Research | 2025"
+    >   
+    <h1 slot="title">Designing AI Research Tools</h1>
+    <h2 slot="subtitle">Empowering designers to lead their own research</h2>
+    </ux-case-header>
+    <script type="module">
+      import { define } from "@calpoly/mustang";
+      import { UxCaseHeaderElement } from "/src/ux-case-header.js";
+
+      define({
+        "ux-case-header": UxCaseHeaderElement
+      });
+    </script>
   </main>
   <script>
     document.querySelector('#darkmode-toggle input').addEventListener('change', function () {

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+  <title>Reva UX Portfolio</title>
+  <link rel="stylesheet" href="styles/page.css">
+</head>
+<body>
+  <nav>
+      <a href="/">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+  </nav>
+  <label id="darkmode-toggle">
+    <input type="checkbox" autocomplete="off" />
+    Dark mode
+  </label>
+  <main id="main">
+    <ux-case-header 
+        img-src="/images/ai_case.png" 
+        alt="AI case study preview" 
+        category="UX Research | 2025"
+    >   
+    <h1 slot="title">Designing AI Research Tools</h1>
+    <h2 slot="subtitle">Empowering designers to lead their own research</h2>
+    </ux-case-header>
+    
+  </main>
+  <script>
+    document.querySelector('#darkmode-toggle input').addEventListener('change', function () {
+      document.body.classList.toggle('dark', this.checked);
+    });
+  </script>
+  
+  
+
+  
+
+  <!-- <h1>Reva UX Portfolio</h1>
+
+  <h2>Projects</h2>
+  <div class="projects">
+    <div class="card">
+      <a href="projects/casify.html">Redesigning a Checkout Flow</a>
+    </div>
+    <div class="card">
+      <a href="projects/amplitude.html">Intern Dashboard Experience</a>
+    </div>
+    <div class="card">
+      <a href="projects/paloaltonetworks.html">Nonprofit Website Revamp</a>
+    </div> -->
+</body>
+</html>
