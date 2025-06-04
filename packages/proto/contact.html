@@ -1,19 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Contact</title>
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/styles/page.css" />
+  
+    <title>Reva UX Portfolio</title>
+  </head>
 <body>
-  <h1>Contact</h1>
-  <p>Email: <a href="mailto:reva.design@example.com">reva.design@example.com</a></p>
+  <nav>
+    <a href="/">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <label id="darkmode-toggle">
+    <input type="checkbox" autocomplete="off" />
+    Dark mode
+  </label>
+  <main id="main">
+    <h1>Get in Touch</h1>
+    <h3>Have a project in mind or want to discuss a potential collaboration? I'd love to hear from you.</h3>
+    <p>Email: <a href="mailto:rmoolky@gmail.com">rmoolky@gmail.com</a></p>
   <a href="index.html">← Back to Portfolio</a>
   <form id="contact-form">
+    <h2 class="form-title">Let's get in touch</h2>
     <input type="text" name="name" placeholder="Your name" required />
     <input type="email" name="email" placeholder="Your email" required />
+    <input type="subject" name="subject" placeholder="Subject" required />
     <textarea name="message" placeholder="Your message" required></textarea>
     <button type="submit">Send</button>
   </form>
+  </main>
+    
   
   <p id="response-msg"></p>
   <script>
@@ -47,6 +67,11 @@
         document.getElementById("response-msg").textContent = "Error sending message.";
         console.error(err);
       }
+    });
+  </script>
+  <script>
+    document.querySelector('#darkmode-toggle input').addEventListener('change', function () {
+      document.body.classList.toggle('dark', this.checked);
     });
   </script>
   

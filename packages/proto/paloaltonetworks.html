@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/styles/page.css" />
+    <title>Reva UX Portfolio</title>
+  </head>
+<body>
+  <nav>
+    <a href="/">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <label id="darkmode-toggle">
+    <input type="checkbox" autocomplete="off" />
+    Dark mode
+  </label>
+  <main class="panw">
+    <!--Title+hero+description-->
+    <section class="hero">
+        <h1>Building a Research Toolkit for Designer-Led Discovery and PM Collaboration</h1>
+        <ul class="tag-list">
+            <li class="tag">UX Research</li>
+            <li class="tag">Interaction Design</li>
+            <li class="tag">Prototyping</li>
+        </ul>
+        <article class ="project-grid">
+            <figure class="column-12">
+              <a href="paloaltonetworks.html">
+                <div class="img-mid bg-ic img border">
+                  <img src="images/panw1.png">
+                </div>
+                <!-- :: after -->
+              </a>
+            </figure>
+        </article>
+        <p class="column-8">
+            The UX design process at NetSec currently lacks sufficient and timely user insights due to limited availability and accessibility of research resources. Additionally, there is a need for a streamlined process to onboard Product Managers (PMs) into research activities to garner their support and enhance collaboration. To address these issues, a comprehensive UX Research Toolkit is needed to enable designers to conduct effective research.
+        </p>
+        <ul class="project-grid quick-overview column-12"> 
+            <li class="column-3"> <h6>Role</h6> <p>Product Designer</p> </li> 
+            <li class="column-3"> <h6>Team</h6> <p> (Engineer)</p> </li> 
+            <li class="column-3"> <h6>Duration</h6> <p>2023 - Present</p> </li> 
+        </ul>
+    </section>
+    <empathize-section
+        heading="UNDERSTANDING DESIGNERS & THEIR RESEARCH CHALLENGES"
+        paragraph="I started by conducting a thorough literature review, examining existing templates and frameworks to see what tools were already out there and how they could inspire my approach."
+    ></empathize-section>
+    <empathize-section-image
+        heading="UNDERSTANDING DESIGNERS & THEIR RESEARCH CHALLENGES"
+        paragraph="I started by conducting a thorough literature review, examining existing templates and frameworks to see what tools were already out there and how they could inspire my approach."
+        img-src="images/palo-alto-networks-1.svg"
+        img-alt="Screenshot of research notes"
+    ></empathize-section-image>
+    <empathize-section-image
+        subheading="QUALITATIVE RESEARCH:" 
+        heading="I RAN 9 QUALITATIVE INTERVIEWS"
+        paragraph="To tailor the toolkit to their specific needs, I embarked on a series of nine in-depth user interviews with designers across various teams. I focused on evaluating three key personas:"
+        img-src="images/palo-alto-networks-1.svg"
+        img-alt="Screenshot of research notes"
+    ></empathize-section-image>
+    <empathize-section-image
+        heading="QUALITATIVE RESEARCH: I RAN 9 QUALITATIVE INTERVIEWS"
+        paragraph="To tailor the toolkit to their specific needs, I embarked on a series of nine in-depth user interviews with designers across various teams. I focused on evaluating three key personas:"
+        img-src="images/palo-alto-networks-1.svg"
+        img-alt="Screenshot of research notes"
+    ></empathize-section-image>
+
+
+
+    <!-- <section class="block">
+        <h6>Empathize</h6>
+        <ul class="grid text-d-banner">
+            <li class="column-6">
+                <h2>UNDERSTANDING DESIGNERS & THEIR RESEARCH CHALLENGES</h2>
+            </li>
+            <li class="column-6">
+                <p>I started by conducting a thorough literature review, examining existing templates and frameworks to see what tools were already out there and how they could inspire my approach.</p>
+            </li>
+        </ul>
+    </section> -->
+  </main>
+  <script type="module">
+    import { EmpathizeSectionElement } from '/src/components/EmphasizeSection.js';
+    customElements.define('empathize-section', EmpathizeSectionElement);
+  </script>
+  <script type="module">
+    import { EmpathizeSectionImageElement } from '/src/components/EmphasizeSectionImage.js';
+    customElements.define('empathize-section-image', EmpathizeSectionImageElement);
+  </script>
+  
+  <script>
+    document.querySelector('#darkmode-toggle input').addEventListener('change', function () {
+      document.body.classList.toggle('dark', this.checked);
+    });
+  </script>
+  
+  
+</body>
+</html>

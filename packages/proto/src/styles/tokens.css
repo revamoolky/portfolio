@@ -1,44 +1,52 @@
 /* Design Tokens */
 
 :root {
-    /* Colors */
-    --color-primary: #4f46e5; /* Indigo 600 */
-    --color-secondary: #6366f1; /* Indigo 500 */
-    --color-background: #ffffff;
-    --color-text-primary: #111827; /* Gray 900 */
-    --color-text-secondary: #6b7280; /* Gray 500 */
+  /* Colors */
+  --color-primary: #000000; /* Indigo 600 */
+  --color-secondary: #FD572B; /* Indigo 500 */
+  --color-background: #ffffff;
+  --color-text-primary: #111827; /* Gray 900 */
+  --color-text-secondary: #6b7280; /* Gray 500 */
+  --color-background-secondary: #f3f3f6;
+  --color-background-tertiary: #fbfbfb;
+  --color-border-light: #e7e7e7;
+  --color-border-dark: #b5b5b5;
 
-    /*nav*/
-    --nav-height: 80px;
-  
-    /* Spacing */
-    --space-xs: 4px;
-    --space-sm: 8px;
-    --space-md: 16px;
-    --space-lg: 24px;
-    --space-xl: 32px;
-  
-    /* Border Radius */
-    --radius-sm: 4px;
-    --radius-md: 8px;
-    --radius-lg: 16px;
-  
-    /* Typography */
-    --font-family-sans: 'Plus Jakarta Sans', sans-serif;
-    --font-size-sm: 0.875rem; /* 14px */
-    --font-size-md: 1rem;      /* 16px */
-    --font-size-lg: 1.25rem;   /* 20px */
-    --font-size-xl: 1.5rem;    /* 24px */
-    --font-weight-reg: 400;
-      
-  }
 
-  /*  Dark Mode */
-  body.dark {
-    --color-background: #111827;
-    --color-text-primary: #f9fafb;
-    --color-text-secondary: #d1d5db;
-    --color-primary: #818cf8;
-    --color-secondary: #a5b4fc;
-  }
-  
+  /*nav*/
+  --nav-height: 80px;
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --border-radius-xsmall: .25rem;
+  --border-radius-small: .5rem;
+  --border-radius-medium: clamp(.25rem, .5vw + .15rem, .75rem);
+  --border-radius-large: 1rem;
+
+  /* Typography */
+  --font-family-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-md: 1rem;      /* 16px */
+  --font-size-lg: 1.25rem;   /* 20px */
+  --font-size-xl: 1.5rem;    /* 24px */
+  --font-weight-reg: 400;
+    
+}
+
+/*  Dark Mode */
+body.dark {
+  --color-background: #111827;
+  --color-text-primary: #f9fafb;
+  --color-text-secondary: #d1d5db;
+  --color-primary: #818cf8;
+  --color-secondary: #a5b4fc;
+}

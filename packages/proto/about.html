@@ -1,18 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <title>About Reva</title>
-    <link rel="stylesheet" href="/styles/page.css" />
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/styles/page.css" />
+  
+    <title>Reva UX Portfolio</title>
   </head>
   <body>
     <nav>
       <a href="/">Home</a>
       <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
     </nav>
+    <label id="darkmode-toggle">
+      <input type="checkbox" autocomplete="off" />
+      Dark mode
+    </label>
     <main>
       <h1>About Reva</h1>
       <p>This is a page about me!</p>
     </main>
+    <script>
+      document.querySelector('#darkmode-toggle input').addEventListener('change', function () {
+        document.body.classList.toggle('dark', this.checked);
+      });
+    </script>
   </body>
 </html>

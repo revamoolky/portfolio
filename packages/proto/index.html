@@ -1,107 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="src/styles/page.css" />
-
-  <title>Reva UX Portfolio</title>
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/styles/page.css" />
+  
+    <title>Reva UX Portfolio</title>
+  </head>
 <body>
-  <nav>
-      <a href="/">Home</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-  </nav>
-  <label id="darkmode-toggle">
-    <input type="checkbox" autocomplete="off" />
-    Dark mode
-  </label>
-  <main id="main">
-    <header>
-      <h3>
-        Reva Moolky
-        <span style="color: var(--color-text-secondary);
-        font-weight: var(--font-weight-reg)">
-        is a product designer who loves to turn complex challenges into simple, empowering experiences</span>
-      </h3>
-    </header>
-    <section id="project-list">
-      <div class="card">
-        <a href="casify.html">Redesigning a Checkout Flow</a>
+    <div id="lock-screen">
+        <div class="card">
+          <div class="icon">🔒</div>
+          <p>Enter password<br />to access the site.</p>
+          <form id="login-form">
+            <input type="password" id="password-input" placeholder="Password" />
+            <button type="submit" id="submit-btn">Submit</button>
+          </form>
+          <p id="error-msg"></p>
+        </div>
       </div>
-      <div class="card">
-        <a href="amplitude.html">Intern Dashboard Experience</a>
-      </div>
-      <div class="card">
-        <a href="paloaltonetworks.html">Nonprofit Website Revamp</a>
-      </div>
-    </section>
-    <ux-case-wrapper src="data/ux-cases.json"></ux-case-wrapper>
-
-    <!-- <ux-case-header 
-        img-src="/images/ai_case.png" 
-        alt="AI case study preview" 
-        category="UX Research | 2025"
-    >   
-    <h1 slot="title">Designing AI Research Tools</h1>
-    <h2 slot="subtitle">Empowering designers to lead their own research</h2>
-    </ux-case-header>
-    <ux-case-header 
-        img-src="/images/ai_case.png" 
-        alt="AI case study preview" 
-        category="UX Research | 2025"
-    >   
-    <h1 slot="title">Designing AI Research Tools</h1>
-    <h2 slot="subtitle">Empowering designers to lead their own research</h2>
-    </ux-case-header> -->
-    <ux-case-header 
-        img-src="/images/ai_case.png" 
-        alt="AI case study preview" 
-        category="UX Research | 2025"
-    >   
-    <h1 slot="title">Designing AI Research Tools</h1>
-    <h2 slot="subtitle">Empowering designers to lead their own research</h2>
-    </ux-case-header>
-    <script type="module">
-      import { define } from "@calpoly/mustang";
-      import { UxCaseHeaderElement } from "/src/ux-case-header.js";
-      import { UxCaseWrapper} from "/src/components/UxCaseWrapper.js";
+      
     
-      // define({
-      //   "ux-case-header": UxCaseHeaderElement,
-      //   "ux-case-wrapper": UxCaseWrapper,
-      // });
-      customElements.define('ux-case-header', UxCaseHeaderElement);
-    customElements.define('ux-case-wrapper', UxCaseWrapper);
-    </script>
-  </main>
-  <script>
-    document.querySelector('#darkmode-toggle input').addEventListener('change', function () {
-      document.body.classList.toggle('dark', this.checked);
-    });
-  </script>
+    <div id="content" style="display: none;">
+        <h1>Welcome to the site!</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <label id="darkmode-toggle">
+          <input type="checkbox" autocomplete="off" />
+          Dark mode
+        </label>
+        <main id="main">
+          <header>
+            <h3>
+              Reva Moolky
+              <span style="color: var(--color-text-secondary);
+              font-weight: var(--font-weight-reg)">
+              is a product designer who loves to turn complex challenges into simple, empowering experiences</span>
+            </h3>
+          </header>
+          <section id="project-list">
+            <ul>
+              <li class="project-list-item">
+                <article class="logo">
+                  <img src="images/palo-alto-networks-1.svg" alt="Palo Alto Networks" width="32" height="32" loading="lazy">
+                  <p>Palo Alto Networks</p>
+                </article>
+                <ul class="proj_description">
+                  <li>
+                    <h3>Building a Research Toolkit for Designer-Led Discovery and PM Collaboration</h3>
+                    <p class="proj_pos">Internship, 2024</p>
+                  </li>
+                  <li>
+                    <p>I co-founded Inko Cat - a productivity tool that provides the building blocks to create your ideal workspace. I designed every feature and branding in the product.</p>
+                  </li>
+                </ul>
+                <article class ="grid">
+                  <figure class="column-12">
+                    <a href="paloaltonetworks.html">
+                      <div class="img-mid bg-ic img border">
+                        <img src="images/panw1.png">
+                      </div>
+                      <!-- :: after -->
+                    </a>
+                  </figure>
+                </article>
+              </li>
+              <li class="project-list-item">
+                <article class="logo">
+                  <img src="images/amplitude_logo_icon.png" alt="Amplitude" width="32" height="32" loading="lazy">
+                  <p>Amplitude</p>
+                </article>
+                <ul class="proj_description">
+                  <li>
+                    <h3>Streamlining the Chart to Dashboard Creation Experience</h3>
+                    <p class="proj_pos">Consulting Project, 2025</p>
+                  </li>
+                  <li>
+                    <p>I co-founded Inko Cat - a productivity tool that provides the building blocks to create your ideal workspace. I designed every feature and branding in the product.</p>
+                  </li>
+                </ul>
+                <article class ="grid">
+                  <figure class="column-12">
+                    <a href="amplitude.html">
+                      <div class="img-mid bg-ic img border">
+                        <img src="images/panw1.png">
+                      </div>
+                      <!-- :: after -->
+                    </a>
+                  </figure>
+                </article>
+              </li>
+            </ul>
+            <!-- orignal -->
+            <!-- <div class="card">
+              <a href="casify.html">Redesigning a Checkout Flow</a>
+            </div>
+            <div class="card">
+              <a href="amplitude.html">Intern Dashboard Experience</a>
+            </div>
+            <div class="card">
+              <a href="paloaltonetworks.html">Nonprofit Website Revamp</a>
+            </div> -->
+          </section>
+            <!-- Hero Section -->
+        <header>
+          <section class="case-study-intro">
+            <div class="intro-content">
+              <h1>Hi, I'm Reva</h1>
+              <p class="description">UX Researcher & Designer crafting thoughtful experiences.</p>
+            </div>
+          </section>
+        </header>
+      
+        <!-- Main Content -->
+        <main>
+      
+      
+          <!-- Call to Action -->
+          <section class="case-study-intro" style="background-color: var(--color-primary); color: white;">
+            <div class="intro-content">
+              <h2>Let's create something amazing together</h2>
+              <p class="description" style="color: var(--color-text-secondary); max-width: 600px; margin: 0 auto;">
+                I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+              </p>
+              <a href="contact.html" class="card" style="display: inline-block; margin-top: var(--space-md); background: white; color: var(--color-primary);">
+                Get in touch
+              </a>
+            </div>
+          </section>
+          <ux-case-wrapper src="data/ux-cases.json"></ux-case-wrapper>
+      
+          <!-- <ux-case-header 
+              img-src="/images/ai_case.png" 
+              alt="AI case study preview" 
+              category="UX Research | 2025"
+          >   
+          <h1 slot="title">Designing AI Research Tools</h1>
+          <h2 slot="subtitle">Empowering designers to lead their own research</h2>
+          </ux-case-header>
+          <ux-case-header 
+              img-src="/images/ai_case.png" 
+              alt="AI case study preview" 
+              category="UX Research | 2025"
+          >   
+          <h1 slot="title">Designing AI Research Tools</h1>
+          <h2 slot="subtitle">Empowering designers to lead their own research</h2>
+          </ux-case-header> -->
+          <ux-case-header 
+              img-src="/images/ai_case.png" 
+              alt="AI case study preview" 
+              category="UX Research | 2025"
+          >   
+          <h1 slot="title">Designing AI Research Tools</h1>
+          <h2 slot="subtitle">Empowering designers to lead their own research</h2>
+          </ux-case-header>
+          <script type="module">
+            import { define } from "@calpoly/mustang";
+            import { UxCaseHeaderElement } from "/src/ux-case-header.js";
+            import { UxCaseWrapper} from "/src/components/UxCaseWrapper.js";
+          
+            // define({
+            //   "ux-case-header": UxCaseHeaderElement,
+            //   "ux-case-wrapper": UxCaseWrapper,
+            // });
+            customElements.define('ux-case-header', UxCaseHeaderElement);
+          customElements.define('ux-case-wrapper', UxCaseWrapper);
+          </script>
+        </main>
+        <script>
+          document.querySelector('#darkmode-toggle input').addEventListener('change', function () {
+            document.body.classList.toggle('dark', this.checked);
+          });
+        </script>
+      </div>
+    
+      <script src="script.js"></script>
   
   
-
-  
-
-  <!-- <h1>Reva UX Portfolio</h1>
-
-  <h2>Projects</h2>
-  <div class="projects">
-    <div class="card">
-      <a href="projects/casify.html">Redesigning a Checkout Flow</a>
-    </div>
-    <div class="card">
-      <a href="projects/amplitude.html">Intern Dashboard Experience</a>
-    </div>
-    <div class="card">
-      <a href="projects/paloaltonetworks.html">Nonprofit Website Revamp</a>
-    </div> -->
 </body>
 </html>
-
-

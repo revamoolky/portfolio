@@ -1,0 +1,17 @@
+[
+    {
+      "name": "Ideation Project",
+      "imgSrc": "/images/ux/ideation.png",
+      "href": "/projects/ideation-case.html",
+      "timeline": "2 months",
+      "role": "UX Researcher, Designer"
+    },
+    {
+      "name": "Accessibility Audit",
+      "imgSrc": "/images/ux/a11y.png",
+      "href": "/projects/accessibility-case.html",
+      "timeline": "1 month",
+      "role": "Researcher"
+    }
+  ]
+  
