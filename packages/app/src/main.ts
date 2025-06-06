@@ -9,7 +9,7 @@ import {
   import { HomeViewElement } from "./views/home-view";
 //   import { EmpathizeSectionElement } from "./components/emphasize-section";
 //   import { EmpathizeSectionImageElement } from "./components/emphasize-section-image";
-//   import { AboutViewElement } from "./views/about-view";
+  import { AboutViewElement } from "./views/about-view";
   import { ContactViewElement } from "./views/contact-view";
   import { ProjectView } from "./views/project-view";
 
@@ -56,7 +56,7 @@ import '/public/styles/page.css';
     "mu-history": History.Provider,
     "portfolio-header": HeaderElement,
     "home-view": HomeViewElement,
-    // "about-view": AboutViewElement,
+    "about-view": AboutViewElement,
     "contact-view": ContactViewElement,
     // "emphasize-section": EmpathizeSectionElement,
     // "emphasize-section-image": EmpathizeSectionImageElement,

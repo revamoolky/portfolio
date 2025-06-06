@@ -4,6 +4,7 @@ import { property } from 'lit/decorators.js';
 
 export class EmpathizeSectionElement extends LitElement {
   @property({ type: String }) heading = '';
+  @property({ type: String }) subheading = '';
   @property({ type: String }) paragraph = '';
 
   static styles = css`
@@ -35,6 +36,12 @@ export class EmpathizeSectionElement extends LitElement {
       font-size: var(--font-size-lg);
       color: var(--color-primary);
     }
+      li {
+  list-style-type: none;
+  display: list-item;
+  text-align: -webkit-match-parent;
+  unicode-bidi: isolate;
+}
 
     p {
       margin-block: 0.5rem;
@@ -44,7 +51,7 @@ export class EmpathizeSectionElement extends LitElement {
   render() {
     return html`
       <section class="block">
-        <h6>Empathize</h6>
+        <h6>${this.subheading}</h6>
         <ul class="grid text-d-banner">
           <li class="column-6"><h2>${this.heading}</h2></li>
           <li class="column-6"><p>${this.paragraph}</p></li>

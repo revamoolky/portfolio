@@ -23,7 +23,7 @@ export class ContactViewElement extends LitElement  {
 
     try {
       const backendUrl = 'http://localhost:3000'; // Updated to match your server port
-      const res = await fetch(`${backendUrl}/api/contact`, {
+      const res = await fetch(`${backendUrl}/api/contacts`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -141,6 +141,7 @@ export class ContactViewElement extends LitElement  {
       margin-right: auto;
     }
 
+
     .email-link {
       font-size: 1.1rem;
       margin-bottom: 2rem;
@@ -185,7 +186,7 @@ export class ContactViewElement extends LitElement  {
     .form-title {
       font-size: 1.5rem;
       font-weight: var(--font-weight-bold);
-      color: var(--color-text);
+      color: var(--color-background-secondary:);
       margin-bottom: 1.5rem;
       text-align: center;
     }

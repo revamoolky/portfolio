@@ -3,8 +3,11 @@ import { state } from "lit/decorators.js";
 
 
 export class HomeViewElement extends LitElement {
-  @state()
-  isLocked = true;
+//   @state()
+//   isLocked = true;
+    @state()
+    isLocked = sessionStorage.getItem("unlocked") !== "true";
+
 
   @state()
   errorMessage = "";
@@ -15,9 +18,10 @@ export class HomeViewElement extends LitElement {
     const password = (form.querySelector('#password-input') as HTMLInputElement).value;
     
     // Replace with your actual password
-    if (password === "your-password-here") {
+    if (password === "open") {
       this.isLocked = false;
       this.errorMessage = "";
+      sessionStorage.setItem("unlocked", "true");
     } else {
       this.errorMessage = "Incorrect password. Please try again.";
     }
@@ -48,20 +52,12 @@ export class HomeViewElement extends LitElement {
             <div class="intro-content">
               <h1>Hi, I'm Reva</h1>
               <p class="description">UX Researcher & Designer crafting thoughtful experiences.</p>
+              <h3>View my work below ⬇️ </h3>
             </div>
           </section>
         </header>
 
-        <!-- Portfolio Section -->
-        <section class="portfolio">
-          <header class="portfolio-header">
-            <h3>
-              Reva Moolky
-              <span class="subtitle">
-                is a product designer who loves to turn complex challenges into simple, empowering experiences
-              </span>
-            </h3>
-          </header>
+        
           
           <section class="project-list">
             <ul>
@@ -83,7 +79,7 @@ export class HomeViewElement extends LitElement {
                   <figure class="column-12">
                     <a href="/app/project/paloaltonetworks">
                       <div class="img-mid bg-ic img border">
-                        <img src="/images/panw1.png" alt="Palo Alto Networks project">
+                        <img src="/images/panwheader.png" alt="Palo Alto Networks project">
                       </div>
                     </a>
                   </figure>
