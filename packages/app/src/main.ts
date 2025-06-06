@@ -10,6 +10,9 @@ import {
 //   import { AboutViewElement } from "./views/about-view";
   import { ContactViewElement } from "./views/contact-view";
 //   import { ProjectViewElement } from "./views/project-view";
+import '/public/styles/tokens.css';
+import '/public/styles/page.css';
+
   
   // Define your routes BEFORE the define() call
   const routes = [
