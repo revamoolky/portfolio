@@ -1,7 +1,8 @@
 import { css, html, LitElement } from "lit";
 import { state } from "lit/decorators.js";
 
-class HomeViewElement extends LitElement {
+
+export class HomeViewElement extends LitElement {
   @state()
   isLocked = true;
 
@@ -307,4 +308,4 @@ class HomeViewElement extends LitElement {
   `;
 }
 
-export { HomeViewElement };
+// export { HomeViewElement };

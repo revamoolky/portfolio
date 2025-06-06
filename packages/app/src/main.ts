@@ -7,15 +7,19 @@ import {
   import { html } from "lit";
   import { HeaderElement } from "./components/portfolio-header";
   import { HomeViewElement } from "./views/home-view";
+//   import { EmpathizeSectionElement } from "./components/emphasize-section";
+//   import { EmpathizeSectionImageElement } from "./components/emphasize-section-image";
 //   import { AboutViewElement } from "./views/about-view";
   import { ContactViewElement } from "./views/contact-view";
-//   import { ProjectViewElement } from "./views/project-view";
+  import { ProjectView } from "./views/project-view";
+
 import '/public/styles/tokens.css';
 import '/public/styles/page.css';
 
   
   // Define your routes BEFORE the define() call
   const routes = [
+
     {
       path: "/app/project/:slug", // For individual case studies
       view: (params: Switch.Params) => html`
@@ -40,6 +44,7 @@ import '/public/styles/page.css';
         <home-view></home-view>
       `
     },
+
     {
       path: "/",
       redirect: "/app"
@@ -53,7 +58,9 @@ import '/public/styles/page.css';
     "home-view": HomeViewElement,
     // "about-view": AboutViewElement,
     "contact-view": ContactViewElement,
-    // "project-view": ProjectViewElement,
+    // "emphasize-section": EmpathizeSectionElement,
+    // "emphasize-section-image": EmpathizeSectionImageElement,
+    "project-view": ProjectView,
     "mu-switch": class AppSwitch extends Switch.Element {
       constructor() {
         super(routes, "app:history", "app:auth");

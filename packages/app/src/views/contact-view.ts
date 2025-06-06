@@ -1,7 +1,7 @@
 import { css, html, LitElement } from "lit";
 import { state } from "lit/decorators.js";
 
-class ContactViewElement extends LitElement  {
+export class ContactViewElement extends LitElement  {
   @state()
   responseMessage = "";
 
@@ -309,4 +309,4 @@ class ContactViewElement extends LitElement  {
 
 }
 
-export { ContactViewElement };
+// export { ContactViewElement };
