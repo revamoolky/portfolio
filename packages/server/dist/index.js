@@ -25,13 +25,25 @@ var import_express = __toESM(require("express"));
 var import_mongoose = __toESM(require("mongoose"));
 var import_dotenv = __toESM(require("dotenv"));
 var import_contacts = __toESM(require("./routes/contacts"));
+var import_path = __toESM(require("path"));
 import_dotenv.default.config();
 const app = (0, import_express.default)();
 const PORT = process.env.PORT || 3e3;
+const staticDir = import_path.default.join(__dirname, "../../app");
 app.use(import_express.default.json());
 app.use("/api/contacts", import_contacts.default);
+app.use(import_express.default.static(staticDir));
+app.use("/public", import_express.default.static(import_path.default.join(staticDir, "public")));
+app.use("/src", import_express.default.static(import_path.default.join(staticDir, "src")));
 const { MONGO_USER, MONGO_PWD, MONGO_CLUSTER } = process.env;
 const uri = `mongodb+srv://${MONGO_USER}:${MONGO_PWD}@${MONGO_CLUSTER}/?retryWrites=true&w=majority`;
+app.get("/app", (req, res) => {
+  const indexHtml = import_path.default.resolve(staticDir, "index.html");
+  res.sendFile(indexHtml);
+});
+app.get("/", (req, res) => {
+  res.redirect("/app");
+});
 import_mongoose.default.connect(uri).then(() => {
   console.log("\u2705 Connected to MongoDB Atlas");
   app.listen(PORT, () => {

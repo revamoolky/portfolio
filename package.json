@@ -7,9 +7,11 @@
   },
   "author": "",
   "license": "ISC",
-  "description": ""
-  ,
-    "workspaces": [
-        "packages/*"
-    ]
+  "description": "",
+  "workspaces": [
+    "packages/*"
+  ],
+  "dependencies": {
+    "framer-motion": "^12.15.0"
+  }
 }

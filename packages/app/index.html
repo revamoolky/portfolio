@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+  
+  <!-- Keep your existing CSS files - adjust paths as needed -->
+  <link rel="stylesheet" href="/styles/tokens.css" />
+  <!-- <link rel="stylesheet" href="/public/styles/reset.css" /> -->
+  <link rel="stylesheet" href="/styles/page.css" />
+  
+  <title>Reva UX Portfolio</title>
+</head>
+<body>
+  <mu-history provides="app:history">
+    <mu-auth provides="app:auth" redirect="/index.html">
+      <article class="page">
+        <portfolio-header></portfolio-header>
+        <mu-switch></mu-switch>
+      </article>
+    </mu-auth>
+  </mu-history>
+  
+  <script type="module" src="/src/main.ts"></script>
+  <script type="module" src="/src/components/portfolio-header.ts"></script>
+</body>
+</html>

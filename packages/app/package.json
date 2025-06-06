@@ -1,0 +1,16 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "main": "index.html",
+  "scripts": {
+    "dev" : "vite",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@calpoly/mustang": "^1.0.15",
+    "lit": "^3.3.0"
+  }
+}
