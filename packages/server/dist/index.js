@@ -22,38 +22,35 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 var import_express = __toESM(require("express"));
-var import_mongoose = __toESM(require("mongoose"));
-var import_dotenv = __toESM(require("dotenv"));
-var import_contacts = __toESM(require("./routes/contacts.js"));
-var import_promises = __toESM(require("node:fs/promises"));
 var import_path = __toESM(require("path"));
+var import_dotenv = __toESM(require("dotenv"));
+var import_mongoose = __toESM(require("mongoose"));
+var import_contacts = __toESM(require("./routes/contacts.js"));
 import_dotenv.default.config();
 const app = (0, import_express.default)();
 const PORT = process.env.PORT || 3e3;
 const STATIC = process.env.STATIC || "../../app/dist";
 const staticDir = import_path.default.resolve(__dirname, STATIC);
-app.use(import_express.default.json());
-app.use("/api/contacts", import_contacts.default);
-app.use(import_express.default.static(staticDir));
-app.use("/app", async (_req, res) => {
-  try {
-    const indexHtml = import_path.default.join(staticDir, "index.html");
-    const html = await import_promises.default.readFile(indexHtml, "utf8");
-    res.send(html);
-  } catch (err) {
-    res.status(500).send("\u274C Failed to load SPA index.html");
-  }
-});
-app.get("/", (_req, res) => {
-  res.redirect("/app");
-});
+console.log("STATIC env:", process.env.STATIC);
+console.log("Resolved staticDir:", staticDir);
 const { MONGO_USER, MONGO_PWD, MONGO_CLUSTER } = process.env;
 const uri = `mongodb+srv://${MONGO_USER}:${MONGO_PWD}@${MONGO_CLUSTER}/?retryWrites=true&w=majority`;
 import_mongoose.default.connect(uri).then(() => {
-  console.log("\u2705 Connected to MongoDB Atlas");
-  app.listen(PORT, () => {
-    console.log(`\u{1F680} Server running at http://localhost:${PORT}`);
+  console.log("\u2705 MongoDB connected");
+});
+app.use(import_express.default.json());
+app.use("/api/contacts", import_contacts.default);
+app.use(import_express.default.static(staticDir));
+app.get("/{*splat}", (req, res) => {
+  const filePath = import_path.default.join(staticDir, "index.html");
+  console.log("Serving SPA index from:", filePath);
+  res.sendFile(filePath, (err) => {
+    if (err) {
+      console.error("\u274C Failed to serve index.html:", err);
+      res.status(500).send("Internal Server Error");
+    }
   });
-}).catch((err) => {
-  console.error("\u274C MongoDB connection error:", err);
+});
+app.listen(PORT, () => {
+  console.log(`\u{1F680} Server running at http://localhost:${PORT}`);
 });

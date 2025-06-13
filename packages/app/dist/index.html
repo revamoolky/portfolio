@@ -12,17 +12,19 @@
   <link rel="stylesheet" href="/styles/page.css" /> -->
 
   <title>Reva UX Portfolio</title>
-  <script type="module" crossorigin src="/assets/index-JMZ9sFLH.js"></script>
+  <script type="module" crossorigin src="/assets/index-CGn5IMuy.js"></script>
   <link rel="stylesheet" crossorigin href="/assets/index-CnsrZoXg.css">
 </head>
 <body>
-  <mu-history provides="app:history">
-    <mu-auth provides="app:auth" redirect="/index.html">
-      <article class="page">
-        <portfolio-header></portfolio-header>
-        <mu-switch></mu-switch>
-      </article>
-    </mu-auth>
-  </mu-history>
-</body>
-</html>
+    <mu-history provides="app:history">
+      <mu-auth provides="app:auth" redirect="/index.html">
+        <mu-store provides="app:model">
+          <article class="page">
+            <portfolio-header></portfolio-header>
+            <mu-switch></mu-switch>
+          </article>
+        </mu-store>
+      </mu-auth>
+    </mu-history>
+  </body>
+</html> 

@@ -29,5 +29,10 @@
     "express": "^5.1.0",
     "mongodb": "^6.16.0",
     "mongoose": "^8.15.0"
+  },
+  "exports": {
+  "./models": {
+    "import": "./src/models/index.ts"
   }
+}
 }

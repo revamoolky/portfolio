@@ -14,14 +14,16 @@
   <title>Reva UX Portfolio</title>
 </head>
 <body>
-  <mu-history provides="app:history">
-    <mu-auth provides="app:auth" redirect="/index.html">
-      <article class="page">
-        <portfolio-header></portfolio-header>
-        <mu-switch></mu-switch>
-      </article>
-    </mu-auth>
-  </mu-history>
-  <script type="module" src="/src/main.ts"></script>
-</body>
-</html>
+    <mu-history provides="app:history">
+      <mu-auth provides="app:auth" redirect="/index.html">
+        <mu-store provides="app:model">
+          <article class="page">
+            <portfolio-header></portfolio-header>
+            <mu-switch></mu-switch>
+          </article>
+        </mu-store>
+      </mu-auth>
+    </mu-history>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html> 

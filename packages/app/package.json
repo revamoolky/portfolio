@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.html",
   "scripts": {
-    "dev" : "vite",
+    "dev": "vite",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx tsc && npx vite build"
   },
@@ -12,6 +12,7 @@
   "description": "",
   "dependencies": {
     "@calpoly/mustang": "^1.0.15",
-    "lit": "^3.3.0"
+    "lit": "^3.3.0",
+    "server": "file:../server"
   }
 }

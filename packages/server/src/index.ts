@@ -1,57 +1,124 @@
 import express from "express";
-import mongoose from "mongoose";
-import dotenv from "dotenv";
-import contactsRouter from "./routes/contacts.js";
-import fs from "node:fs/promises";
 import path from "path";
+import dotenv from "dotenv";
+import mongoose from "mongoose";
+import contactsRouter from "./routes/contacts.js"; // or .ts if using ts-node
 
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Determine which frontend to serve via STATIC env var
-const STATIC = process.env.STATIC || "../../app/dist"; // default fallback
+// Static folder (should point to actual built Vite output)
+const STATIC = process.env.STATIC || "../../app/dist";
 const staticDir = path.resolve(__dirname, STATIC);
+console.log("STATIC env:", process.env.STATIC);
+console.log("Resolved staticDir:", staticDir);
+ 
 
-// Serve JSON API
+// ✅ Mongo
+const { MONGO_USER, MONGO_PWD, MONGO_CLUSTER } = process.env;
+const uri = `mongodb+srv://${MONGO_USER}:${MONGO_PWD}@${MONGO_CLUSTER}/?retryWrites=true&w=majority`;
+mongoose.connect(uri).then(() => {
+  console.log("✅ MongoDB connected");
+});
+
+// ✅ API route
 app.use(express.json());
 app.use("/api/contacts", contactsRouter);
 
-// Serve static files (built frontend assets)
+// ✅ Serve static files (JS, CSS, assets)
 app.use(express.static(staticDir));
 
-// Single Page App fallback: serve index.html for any /app/* route
-app.use("/app", async (_req, res) => {
-  try {
-    const indexHtml = path.join(staticDir, "index.html");
-    const html = await fs.readFile(indexHtml, "utf8");
-    res.send(html);
-  } catch (err) {
-    res.status(500).send("❌ Failed to load SPA index.html");
-  }
-});
-
-// Root path redirect
-app.get("/", (_req, res) => {
-  res.redirect("/app");
-});
-
-// Connect to MongoDB
-const { MONGO_USER, MONGO_PWD, MONGO_CLUSTER } = process.env;
-const uri = `mongodb+srv://${MONGO_USER}:${MONGO_PWD}@${MONGO_CLUSTER}/?retryWrites=true&w=majority`;
-
-mongoose
-  .connect(uri)
-  .then(() => {
-    console.log("✅ Connected to MongoDB Atlas");
-    app.listen(PORT, () => {
-      console.log(`🚀 Server running at http://localhost:${PORT}`);
-    });
-  })
-  .catch((err) => {
-    console.error("❌ MongoDB connection error:", err);
+// ✅ Fallback route (for SPA): serve index.html
+app.get("/{*splat}", (req, res) => {
+  const filePath = path.join(staticDir, "index.html");
+  console.log("Serving SPA index from:", filePath);
+  res.sendFile(filePath, (err) => {
+    if (err) {
+      console.error("❌ Failed to serve index.html:", err);
+      res.status(500).send("Internal Server Error");
+    }
   });
+});
+
+app.listen(PORT, () => {
+  console.log(`🚀 Server running at http://localhost:${PORT}`);
+});
+
+
+// import express from "express";
+// import mongoose from "mongoose";
+// import dotenv from "dotenv";
+// import contactsRouter from "./routes/contacts.js";
+// import fs from "node:fs/promises";
+// import path from "path";
+
+// dotenv.config();
+
+// const app = express();
+// const PORT = process.env.PORT || 3000;
+
+// // Determine which frontend to serve via STATIC env var
+// const STATIC = process.env.STATIC || "../../app/dist"; // default fallback
+// const staticDir = path.resolve(__dirname, STATIC);
+// console.log("📁 staticDir resolved to:", staticDir);
+
+// // Serve JSON API
+// app.use(express.json());
+// app.use("/api/contacts", contactsRouter);
+
+// // Serve static files (built frontend assets)
+// app.use(express.static(staticDir));
+
+// // Single Page App fallback: serve index.html for any /app/* route
+// // app.use("/app", async (_req, res) => {
+// //   try {
+// //     const indexHtml = path.join(staticDir, "index.html");
+// //     const html = await fs.readFile(indexHtml, "utf8");
+// //     res.send(html);
+// //   } catch (err) {
+// //     res.status(500).send("❌ Failed to load SPA index.html");
+// //   }
+// // });
+// app.use("/app", async (_req, res) => {
+//   const indexHtml = path.join(staticDir, "index.html");
+//   console.log("🧪 Attempting to load:", indexHtml);
+//   try {
+//     const html = await fs.readFile(indexHtml, "utf8");
+//     console.log("✅ Successfully loaded index.html");
+//     res.send(html);
+//   } catch (err) {
+//     if (err instanceof Error) {
+//       console.error("❌ Failed to read index.html:", err.message);
+//     } else {
+//       console.error("❌ Failed to read index.html:", err);
+//     }
+//     res.status(500).send("❌ Failed to load SPA index.html");
+//   }
+// });
+
+
+// // Root path redirect
+// app.get("/", (_req, res) => {
+//   res.redirect("/app");
+// });
+
+// // Connect to MongoDB
+// const { MONGO_USER, MONGO_PWD, MONGO_CLUSTER } = process.env;
+// const uri = `mongodb+srv://${MONGO_USER}:${MONGO_PWD}@${MONGO_CLUSTER}/?retryWrites=true&w=majority`;
+
+// mongoose
+//   .connect(uri)
+//   .then(() => {
+//     console.log("✅ Connected to MongoDB Atlas");
+//     app.listen(PORT, () => {
+//       console.log(`🚀 Server running at http://localhost:${PORT}`);
+//     });
+//   })
+//   .catch((err) => {
+//     console.error("❌ MongoDB connection error:", err);
+//   });
 
 
 // import express, { Request, Response } from "express";

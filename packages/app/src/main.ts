@@ -48,7 +48,12 @@ import '/public/styles/page.css';
     {
       path: "/",
       redirect: "/app"
-    }
+    },
+
+    {
+        path: "/app/contact",
+        view: () => html`<contact-view></contact-view>`
+      }
   ];
   
   define({
